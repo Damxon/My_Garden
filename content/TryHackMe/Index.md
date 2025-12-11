@@ -1,12 +1,11 @@
 ---
 longform:
   format: scenes
-  title: My Garden
+  title: TryHackMe
   workflow: Default Workflow
   sceneFolder: /
   scenes:
-    - Introduction
-  sceneTemplate: Templates/chapter.md
+    - Web Application Pentesting
   ignoredFiles: []
 draft: true
 ---

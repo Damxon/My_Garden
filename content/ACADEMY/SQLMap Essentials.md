@@ -4,5 +4,3 @@ draft: false
 tags:
   - SQL
 ---
- 
-sen de yaz
