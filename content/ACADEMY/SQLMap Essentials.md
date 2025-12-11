@@ -5,3 +5,4 @@ tags:
   - SQL
 ---
  
+sen de yaz
