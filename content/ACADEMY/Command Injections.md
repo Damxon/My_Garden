@@ -1,5 +1,5 @@
 ---
-title: <% tp.file.title %>
+title: Command Injections
 draft: false
 tags:
 ---
