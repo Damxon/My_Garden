@@ -69,15 +69,16 @@ Q: Inline queries
 		Just a warning that parts of the used payloads are found in the response. This behavior could cause problems to automation tools, as it represents the junk. However, SQLMap has filtering mechanisms to remove such junk before comparing the original page content.
 
 ***Running SQLMap on an HTTP Request***
-	`Damxon@htb[/htb]$ sqlmap 'http://www.example.com/' --data 'uid=1&name=test'`
-		In such cases, POST parameters uid and name will be tested for SQLi vulnerability. For example, if we have a clear indication that the parameter uid is prone to an SQLi vulnerability, we could narrow down the tests to only this parameter using -p uid. Otherwise, we could mark it inside the provided data with the usage of special marker * as follows:
-		`Damxon@htb[/htb]$ sqlmap 'http://www.example.com/' --data 'uid=1*&name=test'`
-	To run SQLMap with an HTTP request file, we use the -r flag, as follows:
-		Damxon@htb[/htb]$ sqlmap -r req.txt
-	Cookie value to *PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c* option --cookie would be used as follows:
-		Damxon@htb[/htb]$ sqlmap ... --cookie='PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c'
-			The same effect can be done with the usage of option -H/--header:
-				Damxon@htb[/htb]$ sqlmap ... -H='Cookie:PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c'		
-	Also, if we wanted to specify an alternative HTTP method, other than GET and POST (e.g., PUT), we can utilize the option --method, as follows:
+- `Damxon@htb[/htb]$ sqlmap 'http://www.example.com/' --data 'uid=1&name=test'`
 
-		Damxon@htb[/htb]$ sqlmap -u www.target.com --data='id=1' --method PUT
+	In such cases, POST parameters uid and name will be tested for SQLi vulnerability. For example, if we have a clear indication that the parameter uid is prone to an SQLi vulnerability, we could narrow down the tests to only this parameter using -p uid. Otherwise, we could mark it inside the provided data with the usage of special marker * as follows:
+	
+		`Damxon@htb[/htb]$ sqlmap 'http://www.example.com/' --data 'uid=1*&name=test'`
+- To run SQLMap with an HTTP request file, we use the -r flag, as follows:
+	Damxon@htb[/htb]$ sqlmap -r req.txt
+- Cookie value to *PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c* option --cookie would be used as follows:
+	Damxon@htb[/htb]$ sqlmap ... --cookie='PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c'
+		The same effect can be done with the usage of option -H/--header:
+			Damxon@htb[/htb]$ sqlmap ... -H='Cookie:PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c'
+- Also, if we wanted to specify an alternative HTTP method, other than GET and POST (e.g., PUT), we can utilize the option --method, as follows:
+	Damxon@htb[/htb]$ sqlmap -u www.target.com --data='id=1' --method PUT
