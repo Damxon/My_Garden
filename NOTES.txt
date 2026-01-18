@@ -1,0 +1,3 @@
+npx quartz sync
+
+sadece bunu kullanman yeterli

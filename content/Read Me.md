@@ -1,2 +1,2 @@
 
-Please read me here .
+Deniyoruz biseyler Hocam

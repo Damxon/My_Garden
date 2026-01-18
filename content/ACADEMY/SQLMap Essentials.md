@@ -75,10 +75,20 @@ Q: Inline queries
 	
 		`Damxon@htb[/htb]$ sqlmap 'http://www.example.com/' --data 'uid=1*&name=test'`
 - To run SQLMap with an HTTP request file, we use the -r flag, as follows:
-	Damxon@htb[/htb]$ sqlmap -r req.txt
-- Cookie value to *PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c* option --cookie would be used as follows:
-	Damxon@htb[/htb]$ sqlmap ... --cookie='PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c'
+	`Damxon@htb[/htb]$ sqlmap -r req.txt`
+- Cookie value to *PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c*  option --cookie would be used as follows:
+	`Damxon@htb[/htb]$ sqlmap ... --cookie='PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c'`
 		The same effect can be done with the usage of option -H/--header:
-			Damxon@htb[/htb]$ sqlmap ... -H='Cookie:PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c'
+			`Damxon@htb[/htb]$ sqlmap ... -H='Cookie:PHPSESSID=ab4530f4a7d10448457fa8b0eadac29c'`
 - Also, if we wanted to specify an alternative HTTP method, other than GET and POST (e.g., PUT), we can utilize the option --method, as follows:
-	Damxon@htb[/htb]$ sqlmap -u www.target.com --data='id=1' --method PUT
+	`Damxon@htb[/htb]$ sqlmap -u www.target.com --data='id=1' --method PUT`
+
+**HANDLING ERRORS** 
+- `--parse-errors`
+	- With this option, SQLMap will automatically print the DBMS error, thus giving us clarity on what the issue may be so that we can properly fix it.
+- `-t /tmp/traffic.txt`
+	- /tmp/traffic.txt file now contains all sent and received HTTP requests. So, we can now manually investigate these requests to see where the issue is occurring.
+- `-v`
+	- The -v 6 option will directly print all errors and full HTTP request to the terminal so that we can follow along with everything SQLMap is doing in real-time.
+- `--proxy`
+	- --proxy option to redirect the whole traffic through a (MiTM) proxy (e.g., Burp). This will route all SQLMap traffic through Burp, so that we can later manually investigate all requests, repeat them, and utilize all features of Burp with these requests:
